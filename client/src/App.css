@@ -1,0 +1,62 @@
+#root {
+  text-align: left;
+  width : 100vw;
+}
+
+.navbar>*{
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.container-fluid>*{
+  padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+}
+
+.navbarItem{
+  width: 2vw;
+  height: 2vw;
+}
+
+.brand{
+  margin-right: 1vw;
+}
+
+.login{
+  color:white;
+}
+
+div.row{
+  margin: 0px !important;
+}
+
+.custom-button-group .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.custom-button-group .btn:last-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.custom-button-group{
+  padding: 0 0 0 0;
+}
+
+h1{
+  text-align: center;
+}
+
+h3{
+  color: navy;
+}
+
+p,h3,h5{
+  word-wrap: break-word;
+}
+
+.form-label{
+  margin-bottom: 0 !important ;
+}
+
+/* large use of inline css since they have priority over css file */
