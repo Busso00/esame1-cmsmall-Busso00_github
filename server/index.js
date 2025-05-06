@@ -66,7 +66,7 @@ const port = 3001;
 app.use(morgan('dev'));
 app.use(express.json());
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:8080',
   credentials: true
 };
 app.use(cors(corsOptions)); // NB: Usare solo per sviluppo e per l'esame! Altrimenti indicare dominio e porta corretti
