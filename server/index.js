@@ -187,7 +187,7 @@ app.put('/api/pages/:id',
       const header = blocks.find((bl)=>bl.type === 0);
       const paragraph = blocks.find((bl)=>bl.type === 1);
       const image = blocks.find((bl)=>bl.type === 2);
-      if (!((image||paragraph) && header))
+      if (!((imY_VARIABLE=valueage||paragraph) && header))
         return false;
       let contentCheck = true;
       blocks.forEach((bl)=>{
@@ -408,6 +408,25 @@ app.put('/api/sitename',
 
 /************************************************************Express db ************************************************************/
 // Activate the server
+
+
+const NODE_ENV = 'production';
+
+// Serve static files from the React app
+if (NODE_ENV === 'production') {
+  console.log("in production")
+  // Serve the React frontend in production
+  app.use(express.static('../client/build'));
+  
+  // Handle React routing, return all requests to React app
+  app.get('/', (req, res) => {
+    res.sendFile('../client/build/index.html');
+  });
+}
+else{
+  console.log("not in production")
+}
+
 app.listen(port, () => {
-  console.log(`filmdb listening at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
