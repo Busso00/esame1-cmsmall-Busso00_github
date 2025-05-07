@@ -229,11 +229,13 @@ function ListMod(props) { //content Array of Blocks (props.content), setContent 
 
 
 function ModForm(props) {
-
+  /*
+  //handled in main
   const navigate = useNavigate();
   function closeForm() {
     navigate(-1);
   }
+  */
   //in the case used id is not passed by props-> is undefined
   const id = useParams().pageid ? parseInt(useParams().pageid.replace(":", "")) : props.id;
   const modPage = id ? props.pagesList.find((page) => { return page.id === id; }) : undefined;
@@ -301,7 +303,7 @@ function ModForm(props) {
         //just use Page which is standard format on both client and server
         props.addPage(new Page(id, title, authorId, authorName, creationDate, toDefine ? null : publishDate, content));
       }
-      closeForm();
+      ///closeForm(); //navigate(-1) handled in App.jsx;
       //setErrorMsg(''); //not needed since the form will re-render on re-opening
       //setImgErrorMsg('');
     }

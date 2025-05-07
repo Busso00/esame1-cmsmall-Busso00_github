@@ -35,6 +35,10 @@ function App() {
 
   const [showFront, setShowFront] = useState(true);
 
+  const navigate = useNavigate();
+  function closeForm() {
+    navigate(-1);
+  }
   //Run twice in dev mode @ first render
   //https://stackoverflow.com/questions/72238175/why-useeffect-running-twice-and-how-to-handle-it-well-in-react
   useEffect(() => { //i am always at first render of App-> useEffect always executed twice
@@ -79,7 +83,10 @@ function App() {
       return [...pagesList, newPage];
     });
     API.addPage(newPage)
-      .then(() => setDirty(true))//useEffect will retrive up to date information
+      .then(() => {
+        closeForm();
+        setDirty(true);
+      })//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
   };
 
@@ -89,7 +96,10 @@ function App() {
         return (newPage.id === page.id) ? Object.assign({}, newPage, { status: 'updated' }) : page;
       }));
     API.updatePage(newPage)
-      .then(() => setDirty(true))//useEffect will retrive up to date information
+      .then(() => {
+        closeForm();
+        setDirty(true);
+      })//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
   };
 
