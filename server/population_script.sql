@@ -66,10 +66,10 @@ VALUES  ("Cucina",3,"2023-03-06","2023-04-07"), /*pubblicata*/
 		("Elettronica",5,"2023-04-10","2024-12-16"); /*programmata*/
 
 INSERT INTO images (url)
-VALUES  ("https://esame1-cmsmall-busso00-github.onrender.com//static/pizza.png"),
-		("https://esame1-cmsmall-busso00-github.onrender.com//static/sport.png"),
-		("https://esame1-cmsmall-busso00-github.onrender.com//static/CSS.png"),
-		("https://esame1-cmsmall-busso00-github.onrender.com//static/ADC.png");
+VALUES  ("https://esame1-cmsmall-busso00-github.onrender.com/static/pizza.png"),
+		("https://esame1-cmsmall-busso00-github.onrender.com/static/sport.png"),
+		("https://esame1-cmsmall-busso00-github.onrender.com/static/CSS.png"),
+		("https://esame1-cmsmall-busso00-github.onrender.com/static/ADC.png");
 
 /*from web to test overflow of image selection ButtonGroup
 INSERT INTO images (url) 
@@ -110,9 +110,9 @@ VALUES  (1,0,0,NULL,"Pizza",NULL),
 			Risoluzione dell'ADC di 14 bit: 214 = 16384 livelli di quantizzazione
 			La differenza di potenziale tra due livelli adiacenti è 20 V / 16384 = 0,00122 V = 1,22 mV
 		Nella pratica, la risoluzione di un convertitore è limitata dal rapporto segnale/rumore (S/N ratio) del segnale in questione. Se è presente troppo rumore all'ingresso analogico, sarà impossibile convertire con accuratezza oltre un certo numero di bit di risoluzione. Anche se l'ADC produrrà un valore, questo non sarà accurato essendo i bit meno significativi funzione del rumore e non del segnale. Il rapporto S/N dovrebbe essere di circa 6 dB per bit. ",NULL,NULL),
-		(1,1,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com//static/pizza.png"),
-		(4,2,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com//static/sport.png"),
-		(5,2,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com//static/CSS.png"),
-		(6,3,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com//static/ADC.png");
+		(1,1,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com/static/pizza.png"),
+		(4,2,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com/static/sport.png"),
+		(5,2,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com/static/CSS.png"),
+		(6,3,2,NULL,NULL,"https://esame1-cmsmall-busso00-github.onrender.com/static/ADC.png");
 
 
