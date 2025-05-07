@@ -1,3 +1,3 @@
 cd server
 export MNODE_ENV=production
-nodemon index.js
+node index.js
