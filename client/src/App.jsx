@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
-import { Routes, Route, BrowserRouter, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { Row, Alert } from 'react-bootstrap';
 //import AddForm from './components/AddForm';
 //import EditForm from './components/EditForm';
@@ -35,13 +35,10 @@ function App() {
 
   const [showFront, setShowFront] = useState(true);
 
-  const navigate = useNavigate();
-  
   //Run twice in dev mode @ first render
   //https://stackoverflow.com/questions/72238175/why-useeffect-running-twice-and-how-to-handle-it-well-in-react
   useEffect(() => { //i am always at first render of App-> useEffect always executed twice
     if (dirty || !ready) {
-      console.log("ensure effect execute");
       //!ready in || with other condition ensure that at first render the get is executed, is setAlso by dismiss and change of log state
       if (!loggedIn) {
         API.getAllPages()
@@ -81,10 +78,7 @@ function App() {
       return [...pagesList, newPage];
     });
     API.addPage(newPage)
-      .then(() => {
-        navigate(-1);
-        setDirty(true);
-      })//useEffect will retrive up to date information
+      .then(() => setDirty(true))//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
   };
 
@@ -94,10 +88,7 @@ function App() {
         return (newPage.id === page.id) ? Object.assign({}, newPage, { status: 'updated' }) : page;
       }));
     API.updatePage(newPage)
-      .then(() => {
-        navigate(-1);
-        setDirty(true);
-      })//useEffect will retrive up to date information
+      .then(() => setDirty(true))//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
   };
 
