@@ -184,6 +184,7 @@ function ListMod(props) { //content Array of Blocks (props.content), setContent 
     }
     else if (el.type === 2) {
       // block of type image
+      console.log(props.URLs);
       return (
         <ListGroupItem key={i}>
           {
