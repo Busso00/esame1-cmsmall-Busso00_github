@@ -93,6 +93,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/static', express.static('public'));
+app.use('/edit/static', express.static('public'));
 
 /******************************* Users APIs *********************************************************************/
 // POST /api/sessions 
