@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-const URL = 'http://localhost:8080/api';
+const URL = 'https://esame1-cmsmall-busso00-github.onrender.com:8080/api';
 
 "use strict";
 

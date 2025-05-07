@@ -12,7 +12,7 @@ export default defineConfig({
     proxy: {
       // During development, proxy API requests to your local server
       '/api': {
-        target: 'http://localhost:8080', // Your backend server address
+        target: 'https://esame1-cmsmall-busso00-github.onrender.com:8080', // Your backend server address
         changeOrigin: true,
       }
     }
