@@ -66,7 +66,7 @@ const port = 8080;
 app.use(morgan('dev'));
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://esame1-cmsmall-busso00-github.onrender.com:8080',
+  origin: 'localhost:8080',
   credentials: true
 };
 app.use(cors(corsOptions)); // NB: Usare solo per sviluppo e per l'esame! Altrimenti indicare dominio e porta corretti
@@ -419,7 +419,7 @@ if (NODE_ENV === 'production') {
   app.use(express.static('../client/build'));
   
   // Handle React routing, return all requests to React app
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
     res.sendFile('../client/build/index.html');
   });
 }

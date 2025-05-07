@@ -1,7 +1,7 @@
-GET https://esame1-cmsmall-busso00-github.onrender.com:3001/api/pages/ HTTP/1.1
+GET localhost:3001/api/pages/ HTTP/1.1
 ###
-GET https://esame1-cmsmall-busso00-github.onrender.com:3001/api/sitename/ HTTP/1.1
+GET localhost:3001/api/sitename/ HTTP/1.1
 ###
-GET https://esame1-cmsmall-busso00-github.onrender.com:3001/api/images/ HTTP/1.1
+GET localhost:3001/api/images/ HTTP/1.1
 ###
-GET https://esame1-cmsmall-busso00-github.onrender.com:3001/api/pages/login HTTP/1.1
+GET localhost:3001/api/pages/login HTTP/1.1
