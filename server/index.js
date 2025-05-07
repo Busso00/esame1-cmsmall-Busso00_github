@@ -60,7 +60,7 @@ passport.deserializeUser((id, done) => {
 
 // init express
 const app = express();
-const port = 3001;
+const port = 8080;
 
 // set-up the middlewares
 app.use(morgan('dev'));
