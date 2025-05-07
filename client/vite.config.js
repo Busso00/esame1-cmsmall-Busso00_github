@@ -12,7 +12,7 @@ export default defineConfig({
     proxy: {
       // During development, proxy API requests to your local server
       '/api': {
-        target: 'localhost:8080', // Your backend server address
+        target: 'localhost:80', // Your backend server address
         changeOrigin: true,
       }
     }

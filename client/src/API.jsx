@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-const URL = 'localhost:8080/api';
+const URL = 'localhost:80/api';
 
 "use strict";
 
