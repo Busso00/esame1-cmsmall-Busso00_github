@@ -39,6 +39,7 @@ function App() {
   //https://stackoverflow.com/questions/72238175/why-useeffect-running-twice-and-how-to-handle-it-well-in-react
   useEffect(() => { //i am always at first render of App-> useEffect always executed twice
     if (dirty || !ready) {
+      console.log("ensure effect execute");
       //!ready in || with other condition ensure that at first render the get is executed, is setAlso by dismiss and change of log state
       if (!loggedIn) {
         API.getAllPages()
