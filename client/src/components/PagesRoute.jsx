@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import { Button, ListGroup, Row, Col, ListGroupItem, Container, Spinner} from 'react-bootstrap';
 import { BsPencilSquare, BsTrash } from 'react-icons/bs';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,21 +24,21 @@ function PageLine(props) {
       return <Row key={i}><img src={block.data} style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 0, paddingRight: 0 }} /></Row>
   });
 
-  useEffect(() => { //i am always at first render of App-> useEffect always executed twice
-    switch (props.status) {
-      case 'added':
-        statusClass = 'bg-success';
-        break;
-      case 'deleted':
-        statusClass = 'bg-danger';
-        break;
-      case 'updated':
-        statusClass = 'bg-warning';
-        break;
-      default:
-        break;
-    }
-  },[props.status]);
+  console.log(props.dirty);
+  
+  switch (props.status) {
+    case 'added':
+      statusClass = 'bg-success';
+      break;
+    case 'deleted':
+      statusClass = 'bg-danger';
+      break;
+    case 'updated':
+      statusClass = 'bg-warning';
+      break;
+    default:
+      break;
+  }
 
   return (//low bg-opacity for color when update/insert/delete, maxwidth hight to adapt well with low zoom of browser
     <Container className={statusClass + ' bg-opacity-25'} style={{marginLeft: 0, marginRight: 0, maxWidth: 8000}}>
