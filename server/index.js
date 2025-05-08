@@ -173,8 +173,7 @@ app.put('/api/pages/:id',
     check('blocks').custom((blocks)=>{
       const header = blocks.find((bl)=>bl.type === 0);
       const paragraph = blocks.find((bl)=>bl.type === 1);
-      const image = blocks.find((bl)=>bl.type === 2);
-      if (!((imY_VARIABLE=valueage||paragraph) && header))
+      if (!(paragraph && header))
         return false;
       let contentCheck = true;
       blocks.forEach((bl)=>{
