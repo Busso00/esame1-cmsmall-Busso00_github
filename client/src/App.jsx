@@ -84,9 +84,9 @@ function App() {
 
   const updatePage = (newPage) => {
     setPagesList((pagesList) =>
-      pagesList.map((page) => {
-        return (newPage.id === page.id) ? Object.assign({}, newPage, { status: 'updated' }) : page;
-      }));
+      [ ...pagesList.map((page) => 
+        (newPage.id === page.id) ? Object.assign({}, newPage, { status: 'updated' }) : page)
+      ]);
     API.updatePage(newPage)
       .then(() => setDirty(true))//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
@@ -94,8 +94,8 @@ function App() {
 
   const deletePage = (id) => {
     setPagesList((pagesList) =>
-      pagesList.map((page) => page.id === id ? Object.assign({}, page, { status: 'deleted' }) : page)
-    );
+      [ ...pagesList.map((page) => page.id === id ? Object.assign({}, page, { status: 'deleted' }) : page)
+    ]);
     API.deletePage(id)
       .then(() => setDirty(true))//useEffect will retrive up to date information
       .catch((err) => setDbErrorMsg(err.error));
@@ -181,7 +181,6 @@ function App() {
                 {dbErrorMsg + "\n CREATE/UPDATE/DELETE are lost, you can retry READ by dismissing this alert"}
               </Alert> :
               <PagesRoute
-                dirty={dirty}
                 ready={ready}
                 pagesList={pagesList}
                 showFront={showFront} toggleView={toggleView}

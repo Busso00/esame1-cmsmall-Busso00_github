@@ -24,7 +24,6 @@ function PageLine(props) {
       return <Row key={i}><img src={block.data} style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 0, paddingRight: 0 }} /></Row>
   });
 
-  console.log(props.dirty);
   
   switch (props.status) {
     case 'added':
@@ -119,7 +118,6 @@ function PagesRoute(props) {
     .map((page,i) =>
     <ListGroupItem key={i}>
       <PageLine
-        dirty={props.dirty}
         user={props.user} isSuperuser={props.isSuperuser}
         page={page} status={page.status} deletePage={props.deletePage}
         showFront={props.showFront}
