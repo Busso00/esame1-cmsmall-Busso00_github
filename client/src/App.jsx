@@ -181,6 +181,7 @@ function App() {
                 {dbErrorMsg + "\n CREATE/UPDATE/DELETE are lost, you can retry READ by dismissing this alert"}
               </Alert> :
               <PagesRoute
+                dirty={dirty}
                 ready={ready}
                 pagesList={pagesList}
                 showFront={showFront} toggleView={toggleView}

@@ -24,19 +24,21 @@ function PageLine(props) {
       return <Row key={i}><img src={block.data} style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 0, paddingRight: 0 }} /></Row>
   });
 
-  switch (props.status) {
-    case 'added':
-      statusClass = 'bg-success';
-      break;
-    case 'deleted':
-      statusClass = 'bg-danger';
-      break;
-    case 'updated':
-      statusClass = 'bg-warning';
-      break;
-    default:
-      break;
-  }
+  useEffect(() => { //i am always at first render of App-> useEffect always executed twice
+    switch (props.status) {
+      case 'added':
+        statusClass = 'bg-success';
+        break;
+      case 'deleted':
+        statusClass = 'bg-danger';
+        break;
+      case 'updated':
+        statusClass = 'bg-warning';
+        break;
+      default:
+        break;
+    }
+  },[props.dirty]);
 
   return (//low bg-opacity for color when update/insert/delete, maxwidth hight to adapt well with low zoom of browser
     <Container className={statusClass + ' bg-opacity-25'} style={{marginLeft: 0, marginRight: 0, maxWidth: 8000}}>
@@ -117,6 +119,7 @@ function PagesRoute(props) {
     .map((page,i) =>
     <ListGroupItem key={i}>
       <PageLine
+        dirty={props.dirty}
         user={props.user} isSuperuser={props.isSuperuser}
         page={page} status={page.status} deletePage={props.deletePage}
         showFront={props.showFront}
