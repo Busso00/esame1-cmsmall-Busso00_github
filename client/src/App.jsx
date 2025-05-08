@@ -54,6 +54,7 @@ function App() {
         API.getAllPagesLogin()
           .then((pagesList) => {
             setPagesList(pagesList);
+            console.log(pagesList);
             setDirty(false);
             setReady(true);
             //setDbErrorMsg('');
