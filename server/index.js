@@ -19,14 +19,6 @@ console.log('mod');//to modify effectively the database modify the string and sa
 
 const answerDelay = 1000;
 
-const randomAPIError = false;
-
-function getRandomInt() {
-  if (randomAPIError)
-    return Math.floor(Math.random() * 1.5); //one over 3 fails
-  else 
-    return 0;
-}
 
 /************************************** Set up Passport ***************************************************/
 // set up the "username and password" login strategy
@@ -141,11 +133,6 @@ app.delete('/api/sessions/current', (req, res) => {
 app.get('/api/users', isLoggedIn,
   (req, res) => {
 
-    if (getRandomInt()>=1){
-      console.log("401");
-      return res.status(401).json({ error: 'Not authenticated' });
-    }
-
     if (req.user.superuser === 1) {
       return userDao.getUsers().then(resultUsers => setTimeout(() => res.json(resultUsers), answerDelay))
         .catch(() => res.status(500).json({ error: 'Internal server error' }).end());
@@ -212,20 +199,6 @@ app.put('/api/pages/:id',
   ],
   async (req, res) => {
 
-    if (getRandomInt()>=1){
-      const rand=getRandomInt();
-      if (rand<1.5/3){
-        console.log("422");
-        return res.status(422).json({ error: 'Parsing parameter error' });
-      }else if (rand<1.5/3*2){
-        console.log("401");
-        return res.status(401).json({ error: 'Not authenticated' });
-      }else{
-        console.log("404");
-        return res.status(401).json({ error: 'Page not found' });
-      }
-    }
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
@@ -291,11 +264,6 @@ app.post('/api/pages',
   ],
   async (req, res) => {
 
-    if (getRandomInt()>=1){
-      console.log("422");
-      return res.status(422).json({ error: 'Parsing parameter error' });
-    }
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
@@ -322,17 +290,6 @@ app.delete('/api/pages/:id',
     check('id').isInt()
   ],
   async (req, res) => {
-
-    if (getRandomInt()>=1){
-      const rand= getRandomInt();
-      if (rand<1.5/2){
-        console.log('401');
-        return res.status(401).json({ error: 'Not authenticated' });
-      }else{
-        console.log('404');
-        return res.status(404).json({ error: 'Page not found' });
-      }
-    }
 
     try {
 
@@ -373,17 +330,6 @@ app.put('/api/sitename',
   ],
 
   async (req, res) => {
-
-    if(getRandomInt()>=1){
-      const rand= getRandomInt();
-      if (rand<1.5/2){
-        console.log('422');
-        return res.status(422).json({ error: 'Parsing parameter error' });
-      }else{
-        console.log('401');
-        return res.status(401).json({ error: 'Not authenticated' });
-      }
-    }
 
     const errors = validationResult(req);
 
