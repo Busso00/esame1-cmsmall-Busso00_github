@@ -17,7 +17,7 @@ const dayjs = require('dayjs');
 /**debug configurations **/
 console.log('mod');//to modify effectively the database modify the string and save
 
-const answerDelay = 0;
+const answerDelay = 1000;
 
 const randomAPIError = false;
 
