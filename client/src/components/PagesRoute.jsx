@@ -114,7 +114,7 @@ function PagesRoute(props) {
 
   const pageDisplay = (props.showFront? 
     pageDisplayNotOrdered:
-    [...pageDisplayNotOrdered].sort((pa,pb)=>pa.id-pb.id))
+    pageDisplayNotOrdered.sort((pa,pb)=>pa.id-pb.id))
     .map((page,i) =>
     <ListGroupItem key={i}>
       <PageLine
