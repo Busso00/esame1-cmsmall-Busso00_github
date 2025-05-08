@@ -39,7 +39,7 @@ function PageLine(props) {
       default:
         break;
     }
-  },[props.dirty]);
+  },[props.dirty, props.status]);
 
   return (//low bg-opacity for color when update/insert/delete, maxwidth hight to adapt well with low zoom of browser
     <Container className={statusClass + ' bg-opacity-25'} style={{marginLeft: 0, marginRight: 0, maxWidth: 8000}}>
